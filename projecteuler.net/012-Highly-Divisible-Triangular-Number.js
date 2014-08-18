@@ -1,4 +1,4 @@
-// http://repl.it/WiI/1
+// http://repl.it/WiI/2
 
 // PROBLEM //
 
@@ -25,9 +25,6 @@ What is the value of the first triangle number to have over five hundred divisor
 
 // ANSWER //
 
-Array.prototype.last=function(){return this[this.length-1]};
-Array.prototype.sum=function(){return this.reduce(function(s,n){return s+n})};
-
 var findFactors = function (num){
     var factors = [1];
     
@@ -51,11 +48,13 @@ var findFactors = function (num){
 };
 
 var findTriangleNumberWithFactors = function (numFactors) {
-    var triangle = [1,2];
-    while (findFactors(triangle.sum()).length <= numFactors) {
-        triangle.push(triangle.last() + 1);
+    var triangleNum = 0;
+    for (var i = 1; i < Number.MAX_VALUE; i++) {
+        triangleNum += i;
+        if (findFactors(triangleNum).length > numFactors)
+            break;
     }
-    return triangle.sum();
+    return triangleNum;
 };
 
 findTriangleNumberWithFactors(500);

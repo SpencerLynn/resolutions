@@ -90,7 +90,7 @@ var largestGridProduct = function (grid, length) {
             largest = rowProduct;
         
         // Get Largest Column Product
-        var colProduct = getLargestRowProduct(grid.pluck(0), length);
+        var colProduct = getLargestRowProduct(grid.pluck(row), length);
         if (colProduct > largest)
             largest = rowProduct;
         
