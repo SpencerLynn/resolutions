@@ -1,3 +1,5 @@
+// http://repl.it/YVF
+
 // PROBLEM //
 
 /*
@@ -44,6 +46,6 @@ function findLexicographicPermutation(digits, index) {
     return permutation;
 }
 
-console.log(findLexicographicPermutation(Array.range(0,10), 1000000));
+findLexicographicPermutation(Array.range(0,10), 1000000);
 
 // 2783915460
