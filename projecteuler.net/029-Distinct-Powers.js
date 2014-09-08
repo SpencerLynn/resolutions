@@ -1,4 +1,4 @@
-//
+// http://repl.it/Y43
 
 // PROBLEM //
 
@@ -85,7 +85,6 @@ function getUniqueExponentials(min, max) {
     return Object.keys(values).length;
 }
 
-var result = getUniqueExponentials(2, 100);
-console.log(result);
+getUniqueExponentials(2, 100);
 
 // 9183
