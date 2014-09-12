@@ -22,10 +22,9 @@ function poundCombinations() {
 
 function processCoin(allCoins, currentAmount, maxAmount, combs) {
     var nextCoin = allCoins[0];
+    var restCoins = allCoins.slice(1);
 
     for (var c = 0; c <= maxAmount; c += nextCoin) {
-        var restCoins = allCoins.slice(1);
-
         if (c + currentAmount > maxAmount)
             break;
         else if (restCoins.length)
