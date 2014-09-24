@@ -1,4 +1,4 @@
-// http://jsfiddle.net/rwm6v57t/1/
+// http://jsfiddle.net/pbg5kmh0/
 
 // PROBLEM //
 
@@ -40,9 +40,6 @@ function getTriangleWordCount(words) {
     var triangleSeq = getTriangleSequence(100);
 
     return words.reduce(function(s, w) {
-        if (w === "SKY")
-            console.log(triangleSeq.indexOf(w.wordValue()));
-
         if (triangleSeq.indexOf(w.wordValue()) !== -1)
             s++;
         return s;
