@@ -1,4 +1,4 @@
-// https://dotnetfiddle.net/kvyMEI
+// https://dotnetfiddle.net/hszAs6
 
 // PROBLEM //
 
@@ -13,6 +13,8 @@ Find the last ten digits of the series:
 // ANSWER //
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 public class Program
@@ -22,15 +24,25 @@ public class Program
 		System.Console.WriteLine(LastDigitsInSeries(10, 1000));
 	}
 
-	public static BigInteger LastDigitsInSeries(int count, int max)
+	public static string LastDigitsInSeries(int count, int max)
 	{
-		var sum = new BigInteger(0);
+		return Enumerable.Range(1, max).Select(i => BigInteger.Pow(i,i)).Sum().ToString().SubstringFromEnd(10);
+	}
+}
 
-		for (var i = 1; i <= max; i++)
-			sum += BigInteger.Pow(i, i);
+public static class StringExtensions
+{
+	public static String SubstringFromEnd(this string s, int count)
+	{
+		return s.Substring(s.Length - count);
+	}
+}
 
-		var sumString = sum.ToString();
-		return BigInteger.Parse(sumString.Substring(sumString.Length - count));
+public static class EnumerableExtensions
+{
+	public static BigInteger Sum(this IEnumerable<BigInteger> e)
+	{
+		return e.Aggregate((a,b) => a+b);
 	}
 }
 
