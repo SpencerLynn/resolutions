@@ -1,4 +1,4 @@
-// http://jsfiddle.net/ekomkw13/
+// http://jsfiddle.net/ekomkw13/1/
 
 // PROBLEM //
 
@@ -38,7 +38,6 @@ function greaterNumeratorDigitsCount(expansions) {
         denom = denom.plus(tempNumer);
         if (numer.toString(10).length > denom.toString(10).length)
             count++;
-        console.log(numer, denom, count);
     }
     return count;
 }
