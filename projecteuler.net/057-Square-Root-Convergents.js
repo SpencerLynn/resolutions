@@ -1,4 +1,4 @@
-// http://jsfiddle.net/ekomkw13/1/
+// http://repl.it/0u8
 
 // PROBLEM //
 
@@ -25,6 +25,8 @@ contain a numerator with more digits than denominator?
 */
 
 // ANSWER //
+function request(u){return new Promise(function(s,f){var x=new XMLHttpRequest();x.open("GET",u,!0);x.onload=function(e){if(x.readyState==4)if(x.status==200)s(eval.call(0,x.responseText));else f(x.statusText)};x.onerror=function(e){f(x.statusText)};x.send()})}
+
 // 3/2, 7/5, 17/12, 41/29, 99/70, etc
 // numerator(k+1) = numerator(k) + 2*denominator(k)
 // denomicator(k+1) = numerator(k) + denominator(k)
@@ -42,7 +44,13 @@ function greaterNumeratorDigitsCount(expansions) {
     return count;
 }
 
-var result = greaterNumeratorDigitsCount(1000);
-console.log(result);
+function main() {
+  return greaterNumeratorDigitsCount(1000);
+}
+
+Promise.all([
+  request("http://cdnjs.cloudflare.com/ajax/libs/bignumber.js/1.4.1/bignumber.min.js")
+]).then(main).then(console.log);
+console.log("Running...");
 
 // 153
